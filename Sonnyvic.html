@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SDIH CONFESS WALL - Share your anonymous confessions">
+    <title>SDIH CONFESS WALL</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FC5C7D; /* NGL pink */
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #FC5C7D;
+        }
+
+        textarea {
+            width: 100%;
+            border: 2px solid #FC5C7D;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
+            outline: none;
+            resize: none;
+        }
+
+        textarea::placeholder {
+            color: #999;
+        }
+
+        button {
+            background-color: #FC5C7D;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #FF82A0;
+        }
+
+        #confessionsContainer {
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #FF82A0;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: left;
+            color: white;
+        }
+
+        footer {
+            color: white;
+            font-size: 14px;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            background-color: #FC5C7D;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SDIH CONFESS WALL</h1>
+        <p>Share your anonymous confession below:</p>
+        
+        <form id="confessionForm">
+            <textarea id="confessionInput" rows="4" placeholder="Write your confession here..."></textarea>
+            <button type="submit">Submit Confession</button>
+        </form>
+        
+        <div id="confessionsContainer">
+            <h2>Anonymous Confessions</h2>
+            <ul id="confessionsList"></ul>
+        </div>
+    </div>
+
+    <footer>
+        Created by Sonnyvic Lozada
+    </footer>
+
+    <script>
+        document.getElementById('confessionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const confessionInput = document.getElementById('confessionInput');
+            const confessionText = confessionInput.value.trim();
+            
+            if (confessionText === '') {
+                alert('Please enter a confession.');
+                return;
+            }
+            
+            // Add confession to the list
+            const confessionsList = document.getElementById('confessionsList');
+            const newConfession = document.createElement('li');
+            newConfession.textContent = confessionText;
+            confessionsList.appendChild(newConfession);
+            
+            // Clear the input
+            confessionInput.value = '';
+        });
+    </script>
+</body>
+</html>
